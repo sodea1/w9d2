@@ -29,21 +29,23 @@ class View {
   }
   
   bindEvents() {
-    this.el.addEventListener("click", this.handleClick); 
+    this.el.addEventListener("click", this.handleClick.bind(this)); 
     // view.handleClick
- 
   }
 
   handleClick(e) {
-   debugger;
+ 
     let ourTarget = e.target;
     this.makeMove(ourTarget);
   }
 
   makeMove(square) {
-    let pos = square.data-pos;
     debugger;
+    let pos = square.getAttribute("data-pos");
+
     this.game.playMove(pos); 
+    let cell = document.querySelector(`li[data-pos=${pos}]`); 
+    cell.innerText = 'X'; 
   }
 
 }

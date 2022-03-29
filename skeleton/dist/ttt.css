@@ -66,7 +66,7 @@ ul{
   display: flex; 
   flex-wrap: wrap; 
   width: 600px; 
-  
+  color: white; 
   /* background-color: grey;
   justify-content: space-between; */
 }
