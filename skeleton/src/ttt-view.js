@@ -1,7 +1,8 @@
 class View {
   constructor(game, el) {
 
-    this.game = new Game()
+    this.el = el;
+    this.game = game;
     this.setupBoard();
 
   }
@@ -19,8 +20,8 @@ class View {
       }
     }
 
-    const figure = document.querySelector(".ttt"); 
-    figure.innerHTML = board; 
+    
+    this.el.appendChild(board); 
 
 
   }
