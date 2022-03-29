@@ -1,0 +1,17 @@
+
+    .cell{ 
+      background-color: gray;
+    }
+
+    ul{ 
+      display: flex; 
+      flex-wrap: wrap; 
+      width: 500px; 
+
+    }
+
+    ul > li:hover{ 
+      background-color: yellow;
+      border: 2px solid black; 
+    }
+    

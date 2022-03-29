@@ -1,5 +1,10 @@
 class View {
-  constructor(game, el) {}
+  constructor(game, el) {
+
+    this.game = new Game()
+    this.setupBoard();
+
+  }
 
   setupBoard() {
     const board = document.createElement("ul");
@@ -9,9 +14,15 @@ class View {
         cell = document.createElement("li");
         cell.innerText = "";
         cell.setAttribute("data-pos", `[${i}, ${j}]`); 
+        cell.classList.toggle('cell'); 
         board.appendChild(cell);
       }
     }
+
+    const figure = document.querySelector(".ttt"); 
+    figure.innerHTML = board; 
+
+
   }
   
   bindEvents() {}

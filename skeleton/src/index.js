@@ -6,6 +6,11 @@ const view = new View();
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".ttt");
+
+  
+
+
+
 });
 
 
