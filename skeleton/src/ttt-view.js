@@ -4,8 +4,10 @@ class View {
     this.el = el;
     this.game = game;
     this.setupBoard();
-
+    this.bindEvents();
   }
+
+
 
   setupBoard() {
     const board = document.createElement("ul");
@@ -26,11 +28,23 @@ class View {
 
   }
   
-  bindEvents() {}
+  bindEvents() {
+    this.el.addEventListener("click", this.handleClick); 
+    // view.handleClick
+ 
+  }
 
-  handleClick(e) {}
+  handleClick(e) {
+   debugger;
+    let ourTarget = e.target;
+    this.makeMove(ourTarget);
+  }
 
-  makeMove(square) {}
+  makeMove(square) {
+    let pos = square.data-pos;
+    debugger;
+    this.game.playMove(pos); 
+  }
 
 }
 

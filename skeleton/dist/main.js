@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const container = document.querySelector(\".ttt\");\n  const game = new Game();\n  const view = new View(game, container);\n  \n\n\n\n\n});\n\n\n\n\n//# sourceURL=webpack://skeleton/./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const container = document.querySelector(\".ttt\");\n  const game = new Game();\n  const view = new View(game, container);\n  \n  \n});\n\n\n\n\n//# sourceURL=webpack://skeleton/./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, el) {\n\n    this.el = el;\n    this.game = game;\n    this.setupBoard();\n\n  }\n\n  setupBoard() {\n    const board = document.createElement(\"ul\");\n    let cell;\n    for(let i = 0; i < 3; i++) {\n      for(let j = 0; j < 3; j++){\n        cell = document.createElement(\"li\");\n        cell.innerText = \"\";\n        cell.setAttribute(\"data-pos\", `[${i}, ${j}]`); \n        cell.classList.toggle('cell'); \n        board.appendChild(cell);\n      }\n    }\n\n    \n    this.el.appendChild(board); \n\n\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack://skeleton/./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n\n    this.el = el;\n    this.game = game;\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n\n\n  setupBoard() {\n    const board = document.createElement(\"ul\");\n    let cell;\n    for(let i = 0; i < 3; i++) {\n      for(let j = 0; j < 3; j++){\n        cell = document.createElement(\"li\");\n        cell.innerText = \"\";\n        cell.setAttribute(\"data-pos\", `[${i}, ${j}]`); \n        cell.classList.toggle('cell'); \n        board.appendChild(cell);\n      }\n    }\n\n    \n    this.el.appendChild(board); \n\n\n  }\n  \n  bindEvents() {\n    this.el.addEventListener(\"click\", this.handleClick); \n    // view.handleClick\n \n  }\n\n  handleClick(e) {\n   debugger;\n    let ourTarget = e.target;\n    this.makeMove(ourTarget);\n  }\n\n  makeMove(square) {\n    let pos = square.data-pos;\n    debugger;\n    this.game.playMove(pos); \n  }\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack://skeleton/./src/ttt-view.js?");
 
 /***/ }),
 
